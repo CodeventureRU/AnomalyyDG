@@ -1,0 +1,75 @@
+@import "variables";
+
+// Сетка
+.row {
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  margin-left: calc($row-gap-x * -.5);
+  margin-right: calc($row-gap-x * -.5);
+}
+
+.row-right {
+  @extend .row;
+  justify-content: flex-end;
+}
+
+.row>* {
+  padding-left: calc($row-gap-x * .5);
+  padding-right: calc($row-gap-x * .5);
+}
+
+@for $i from 1 through 12 {
+  .col-#{$i} {
+    width: calc(100% / 12 * $i);
+  }
+
+  .col-xxl-#{$i} { width: 100%; }
+  .col-xl-#{$i} { width: 100%; }
+  .col-lg-#{$i} { width: 100%; }
+  .col-md-#{$i} { width: 100%; }
+  .col-sm-#{$i} { width: 100%; }
+
+  @media (min-width: $xxl) { .col-xxl-#{$i} { width: calc(100% / 12 * $i); } }
+  @media (min-width: $xl) { .col-xl-#{$i} { width: calc(100% / 12 * $i); } }
+  @media (min-width: $lg) { .col-lg-#{$i} { width: calc(100% / 12 * $i); } }
+  @media (min-width: $md) { .col-md-#{$i} { width: calc(100% / 12 * $i); } }
+  @media (min-width: $sm) { .col-sm-#{$i} { width: calc(100% / 12 * $i); } }
+}
+
+// Flex
+.display-flex {
+  display: flex;
+}
+
+.justify-content-space-between {
+  justify-content: space-between;
+}
+
+.justify-content-center {
+  justify-content: center;
+}
+
+.align-items-center {
+  align-items: center;
+}
+
+.align-items-start {
+  align-items: flex-start;
+}
+
+// Контейнеры
+.container {
+  margin: 0 auto;
+  max-width: $xl;
+
+  @include adaptive-container-padding;
+  padding-top: 140px !important;
+  padding-bottom: 140px !important;
+}
+
+// Экраны
+.fullscreen {
+  width: 100vw;
+  height: 100vh;
+}

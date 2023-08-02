@@ -1,0 +1,93 @@
+// Цвета
+$dark: rgba(16, 16, 16, 1);
+$light: rgba(255, 255, 255, 1);
+
+// Брейкпоинты
+$xxl: 1400px;
+$xl: 1200px;
+$lg: 992px;
+$md: 768px;
+$sm: 576px;
+$xs: 0;
+
+// Шрифты
+$title-font-size: 60px;
+$subtitle-font-size: 18px;
+$h4-font-size: 24px;
+$h2-font-size: 36px;
+$regular-font-size: 15px;
+$menu-font-size: 12px;
+
+$title-font-weight: 600;
+$subtitle-font-weight: 600;
+$header-font-weight: 600;
+$regular-font-weight: 300;
+
+@media (max-width: $lg) {
+  $title-font-size: 60px;
+}
+
+@media (max-width: $md) {
+  $title-font-size: 40px;
+}
+
+@mixin adaptive-title-font-size {
+  font-size: 60px;
+
+  @media (max-width: $lg) {
+    font-size: 40px;
+  }
+
+  @media (max-width: $md) {
+    font-size: 40px;
+  }
+}
+
+// Внутренние отступы
+@mixin adaptive-container-padding {
+  padding: 0 60px;
+
+  @media (max-width: $lg) {
+    padding: 0 40px;
+  }
+
+  @media (max-width: $sm) {
+    padding: 0 20px;
+  }
+}
+
+// Отступы сетки
+$row-gap-x: 20px;
+$row-gap-y: 20px;
+
+
+// Длина анимаций
+$sliding-coefficient: 1.2;
+
+// Fade in
+$fade-in-duration: 1.5s;
+$fade-in-delay-1: 0.2s;
+$fade-in-delay-2: 0.4s;
+$fade-in-delay-3: 0.6s;
+$fade-in-delay-4: 0.8s;
+$fade-in-delay-5: 1.0s;
+
+// Image slider
+$image-slider-animation-duration: 1.5s;
+$image-slider-animation-delay: 1.6s;
+$image-slider-slide-transition: calc(0.8s * $sliding-coefficient);
+
+// Project slider
+$project-subtitle-transition: calc(0.4s * $sliding-coefficient);
+$project-fade-animation-duration: 1.2s;
+
+// Text slider
+$text-slider-slide-transition: calc(0.5s * $sliding-coefficient);
+
+// Screen
+$screen-animation-duration: 2s;
+$screen-animation-delay: 1s;
+$screen-text-animation-duration: 2s;
+
+// Hiding
+$hiding-el-transition: 1.2s;
