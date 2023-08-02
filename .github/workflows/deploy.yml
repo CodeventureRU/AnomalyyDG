@@ -1,0 +1,25 @@
+name: "Deployment"
+on:
+  pull_request:
+    branches: ["main"]
+    types: [closed]
+  push:
+    branches: ["main"]
+
+jobs:
+  deployment:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Getting repository code
+        uses: actions/checkout@v3
+      - name: Pulling and building
+        uses: D3rHase/ssh-command-action@v0.2.2
+        with:
+          host: ${{secrets.SSH_HOST}}
+          user: ${{secrets.SSH_USER}}
+          private_key: ${{secrets.SSH_PRIVATE_KEY}}
+          command: |
+            cd ${{ secrets.SERVER_PROJECT_FOLDER }};
+            git checkout main;
+            git pull;
+            docker compose up -d --build;
