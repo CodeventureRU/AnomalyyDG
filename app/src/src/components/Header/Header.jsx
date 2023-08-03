@@ -1,5 +1,4 @@
 import React, {useState} from 'react';
-import Link from "next/link";
 import MyLink from "@/components/MyLink/MyLink";
 
 const Header = () => {
@@ -14,6 +13,7 @@ const Header = () => {
                         <li><MyLink href={"/"}>Home</MyLink></li>
                         <li><MyLink href={"/contact"}>Contact</MyLink></li>
                         <li><MyLink href={"/about"}>About</MyLink></li>
+                        <li><MyLink href={"/news"}>News</MyLink></li>
                     </ul>
                     <div className={`navbar-burger ${navbarBurgerActive ? "_active" : ""}`} onClick={() => setNavbarBurgerActive(!navbarBurgerActive)}>
                         <span></span>
@@ -26,6 +26,7 @@ const Header = () => {
                 <li><MyLink href={"/"}>Home</MyLink></li>
                 <li><MyLink href={"/contact"}>Contact</MyLink></li>
                 <li><MyLink href={"/about"}>About</MyLink></li>
+                <li><MyLink href={"/news"}>News</MyLink></li>
             </ul>
         </>
     );
