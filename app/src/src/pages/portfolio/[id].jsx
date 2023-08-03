@@ -32,7 +32,7 @@ export default function Work() {
                             {
                                 project.works.map((work, index) => (
                                     <FadeInOnScroll key={index} defaultActive={index === 0}>
-                                        <div className="work">
+                                        <div className="work" style={{maxWidth: work.maxWidth ? work.maxWidth : "100%", marginLeft: "auto", marginRight: "auto"}}>
                                             {
                                                 work.img ? (
                                                     <a href={work.link} target="_blank">

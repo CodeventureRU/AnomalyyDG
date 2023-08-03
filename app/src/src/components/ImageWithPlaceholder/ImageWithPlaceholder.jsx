@@ -34,7 +34,6 @@ const ImageWithPlaceholder = ({
                     setTimeout(() => {
                         setLoading(false);
                     }, 100);
-                    imgOnLoad();
                 }}
                 {...imageProps}
             />
