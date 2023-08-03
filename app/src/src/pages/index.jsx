@@ -1,9 +1,8 @@
 import Head from 'next/head'
 import ImageSlider from "@/components/ImageSlider/ImageSlider";
-import {useEffect, useRef, useState} from "react";
+import {useState} from "react";
 import ProjectSlider from "@/components/ProjectSlider/ProjectSlider";
 import HelloScreen from "@/components/HelloScreen/HelloScreen";
-import {useRouter} from "next/router";
 import {projects} from "@/content/projects";
 import {useTransition} from "@/hooks/useTransition";
 import {useShow} from "@/hooks/useShow";

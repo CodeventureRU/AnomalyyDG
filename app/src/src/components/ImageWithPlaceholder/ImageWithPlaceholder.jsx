@@ -8,6 +8,7 @@ const imageLoader = ({ src }) => {
 const ImageWithPlaceholder = ({
     src,
     srcLow,
+    accurate=false,
     ...imageProps
 }) => {
     const [loading, setLoading] = useState(true);
@@ -29,11 +30,16 @@ const ImageWithPlaceholder = ({
                 src={src}
                 style={{visibility: !showFull ? "hidden" : "visible"}}
                 loader={imageLoader}
-                onLoad={() => {
+                onLoadingComplete={() => {
                     setShowFull(true);
-                    setTimeout(() => {
+                    if (accurate) {
+                        setTimeout(() => {
+                            setLoading(false);
+                        }, 100);
+                    } else {
                         setLoading(false);
-                    }, 100);
+                    }
+
                 }}
                 {...imageProps}
             />

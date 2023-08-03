@@ -19,6 +19,7 @@ const ImageSlider = ({slides, activeSlide=0}) => {
                             on
                             fill={true}
                             alt="Anomaly image"
+                            accurate={true}
                         />
                     ) : (
                         <VideoComponent className={"slide " + (index === activeSlide ? " _active" : "")} videoSrc={slide.video} />
