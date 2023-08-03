@@ -1,15 +1,14 @@
 import Head from 'next/head'
-import Image from "next/image";
 import {useShow} from "@/hooks/useShow";
 import FadeInOnScroll from "@/components/FadeInOnScroll/FadeInOnScroll";
 import {useRouter} from "next/router";
 import {projects} from "@/content/projects";
+import ImageWithPlaceholder from "@/components/ImageWithPlaceholder/ImageWithPlaceholder";
 
 export default function Work() {
 
     const router = useRouter();
     const project = router.query.id ? projects[Number(router.query.id)] : projects[0];
-    console.log();
     useShow();
 
     return (
@@ -34,14 +33,33 @@ export default function Work() {
                                 project.works.map((work, index) => (
                                     <FadeInOnScroll key={index} defaultActive={index === 0}>
                                         <div className="work">
-                                            <Image
-                                                src={`/static/works${work.img}`}
-                                                alt="Image"
-                                                layout="fill"
-                                                objectFit="cover"
-                                                objectPosition="center"
-                                                className="img"
-                                            />
+                                            {
+                                                work.img ? (
+                                                    <a href={work.link} target="_blank">
+                                                        <ImageWithPlaceholder
+                                                            src={work.img}
+                                                            srcLow={work.imgLow}
+                                                            alt="Image"
+                                                            layout="fill"
+                                                            objectFit="cover"
+                                                            objectPosition="center"
+                                                            className="img"
+                                                            loading="lazy"
+                                                        />
+                                                    </a>
+                                                ) : ""
+                                            }
+                                            {
+                                                work.youtube ? (
+                                                    <iframe width="100%" height="700px"
+                                                            src={work.youtube}
+                                                            style={{borderRadius: "8px"}}
+                                                            title="YouTube video player" frameBorder="0"
+                                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                                            allowFullScreen></iframe>
+                                                ) : ""
+                                            }
+
                                         </div>
                                     </FadeInOnScroll>
                                 ))
