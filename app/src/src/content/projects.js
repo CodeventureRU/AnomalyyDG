@@ -190,7 +190,7 @@ export const projects = [
         href: "/portfolio/5",
         image: "https://iili.io/HZbPIse.jpg",
         imageLow: "https://iili.io/HZbPnbS.jpg",
-        description: "Your company logo is your face that people look at. Therefore, it is very important to take the work on the logo very carefully.\nYou can see our work below.\n",
+        description: "Promo description",
         bg: "https://iili.io/HZbPB5l.jpg",
         bgLow: "https://iili.io/HZbPKgf.jpg",
         works: [
