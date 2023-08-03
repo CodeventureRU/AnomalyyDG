@@ -1,6 +1,6 @@
 import React from 'react';
-import Image from "next/image";
 import dynamic from 'next/dynamic';
+import ImageWithPlaceholder from "@/components/ImageWithPlaceholder/ImageWithPlaceholder";
 
 const VideoComponent = dynamic(() => import('./Video'), { ssr: false });
 
@@ -12,14 +12,16 @@ const ImageSlider = ({slides, activeSlide=0}) => {
             {slides.map((slide, index) => (
                 <div key={index} className="fade-in scale-down">
                     {slide.image ? (
-                        <Image
+                        <ImageWithPlaceholder
                             className={"slide" + (index === activeSlide ? " _active" : "")}
                             src={slide.image}
+                            srcLow={slide.imageLow}
+                            on
                             fill={true}
                             alt="Anomaly image"
                         />
                     ) : (
-                        <VideoComponent className={"slide scale-down" + (index === activeSlide ? " _active" : "")} videoSrc={slide.video} />
+                        <VideoComponent className={"slide " + (index === activeSlide ? " _active" : "")} videoSrc={slide.video} />
                     )}
                 </div>
             ))}
