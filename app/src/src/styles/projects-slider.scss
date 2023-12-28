@@ -12,6 +12,10 @@
   flex-direction: column;
   justify-content: center;
 
+  @media (max-width: $md) {
+    justify-content: flex-end;
+  }
+
 
   .projects-fade {
     @include adaptive-container-padding;
@@ -27,6 +31,15 @@
     @media (max-width: $lg) {
       min-width: 420px;
     }
+
+    @media (max-width: $md) {
+      height: auto;
+      padding-bottom: 250px;
+      padding-top: 40px;
+      overflow: hidden;
+      min-width: 0;
+      width: 100%;
+    }
   }
 
   .project h1 {
@@ -35,6 +48,14 @@
     -webkit-text-stroke: 1px $light;
     color: transparent;
     transition: 0.5s;
+
+    @media (max-width: $lg) {
+        margin-left: 15px;
+    }
+
+    @media (max-width: $md) {
+      margin-left: 0;
+    }
   }
 
   ._active {
@@ -108,6 +129,11 @@
 .text-slider {
   width: 100%;
   height: 250px;
+
+  @media(max-width: $md) {
+    height: 90px;
+  }
+
   .text-slider-wrapper {
     position: relative;
 
@@ -123,7 +149,6 @@
         position: absolute;
         left: -35px;
         top: 20px;
-
         font-size: 14px;
       }
 
@@ -159,11 +184,37 @@
       }
 
       @media (max-width: $lg) {
+        span {
+          top: 10px;
+          left: -20px;
+        }
         &._prev {
           transform: translateY(-60px) scale(0.6);
         }
         &._next {
           transform: translateY(70px) scale(0.6);
+        }
+      }
+
+      @media(max-width: $md) {
+        &._prev {
+          transform: translateX(100vw) scale(0.7);
+        }
+        &._next {
+          transform: translateX(-100vw) scale(0.7);
+        }
+
+        &._last {
+          transform: translateX(-100vw) scale(0);
+        }
+
+        &._first {
+          transform: translateX(100vw) scale(0);
+        }
+
+        span {
+          top: -15px;
+          left: 0;
         }
       }
     }

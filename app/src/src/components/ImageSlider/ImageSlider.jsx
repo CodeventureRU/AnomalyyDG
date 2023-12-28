@@ -8,6 +8,7 @@ const VideoComponent = dynamic(() => import('./Video'), { ssr: false });
 const ImageSlider = ({slides, activeSlide=0}) => {
 
     return (
+
         <div className="image-slider right-left fade-in reverse-delay-2">
             {slides.map((slide, index) => (
                 <div key={index} className="fade-in scale-down">
